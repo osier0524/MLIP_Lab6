@@ -16,11 +16,11 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # Activate venv
-                sudo /home/team03/miniconda3/condabin/conda init
+                sudo conda init
 
-                sudo /home/team03/miniconda3/condabin/conda create -n myenv python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
+                sudo conda create -n myenv python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
 
-                sudo /home/team03/miniconda3/condabin/conda activate /home/team03/miniconda3/envs/myenv
+                sudo onda activate myenv
 
                 # Run pytest
                 pytest
