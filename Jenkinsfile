@@ -15,13 +15,18 @@ pipeline {
                 sh '''#!/bin/bash
                 echo 'Test Step: We run testing tool like pytest here'
 
-                # Activate venv
-                sudo conda init
+                # Activate conda
+                source /home/team03/miniconda3/etc/profile.d/conda.sh
 
-                sudo conda create -n myenv python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
+                if ! /home/team03/miniconda3/bin/conda env list | grep -q 'myenv'; then
+                    echo "Creating Conda environment"
+                    /home/team03/miniconda3/bin/conda create -n myenv python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
+                else
+                    echo "Conda environment 'myenv' already exists, skipping creation."
+                fi
 
-                sudo onda activate myenv
-
+                source /home/team03/miniconda3/bin/activate myenv
+                
                 # Run pytest
                 pytest
 
