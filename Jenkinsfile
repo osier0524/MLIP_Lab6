@@ -20,7 +20,7 @@ pipeline {
 
                 sudo /home/team03/miniconda3/condabin/conda create -n myenv python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
 
-                sudo /home/team03/miniconda3/condabin/conda activate myenv
+                sudo /home/team03/miniconda3/condabin/conda activate /home/team03/miniconda3/envs/myenv
 
                 # Run pytest
                 pytest
