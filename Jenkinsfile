@@ -16,12 +16,16 @@ pipeline {
                 echo 'Test Step: We run testing tool like pytest here'
 
                 # Activate venv
-                source venv/bin/activate
+                sudo /home/team03/miniconda3/condabin/conda init
+
+                sudo /home/team03/miniconda3/condabin/conda create -n myenv python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
+
+                sudo /home/team03/miniconda3/condabin/conda activate myenv
 
                 # Run pytest
                 pytest
 
-                echo 'pytest not runned'
+                # echo 'pytest not runned'
                 # exit 1 #comment this line after implementing Jenkinsfile
                 '''
 
