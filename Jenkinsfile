@@ -18,14 +18,14 @@ pipeline {
                 # Activate conda
                 source /home/team03/miniconda3/etc/profile.d/conda.sh
 
-                if ! /home/team03/miniconda3/bin/conda env list | grep -q 'myenv'; then
+                if ! /home/team03/miniconda3/bin/conda env list | grep -q 'lab6env'; then
                     echo "Creating Conda environment"
                     /home/team03/miniconda3/bin/conda create -n lab6env python=3.8 pytest numpy pandas scikit-learn -c conda-forge -y
                 else
-                    echo "Conda environment 'myenv' already exists, skipping creation."
+                    echo "Conda environment 'lab6env' already exists, skipping creation."
                 fi
 
-                source /home/team03/miniconda3/bin/activate myenv
+                source /home/team03/miniconda3/bin/activate lab6env
 
                 # Run pytest
                 pytest
